@@ -150,6 +150,8 @@ int main(int argc, char *argv[])
             U.correctBoundaryConditions();
         }
 
+		#include "TEqn.H"
+
         runTime.write();
 
         runTime.printExecutionTime(Info);

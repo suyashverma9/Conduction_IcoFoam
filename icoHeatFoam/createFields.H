@@ -19,6 +19,14 @@ dimensionedScalar nu
     transportProperties
 );
 
+//Adding thermo-diffusivity
+dimensionedScalar alpha
+(
+    "alpha",
+    dimViscosity,
+    transportProperties
+);
+
 Info<< "Reading field p\n" << endl;
 volScalarField p
 (
@@ -32,6 +40,23 @@ volScalarField p
     ),
     mesh
 );
+
+
+//This section will read temperature field on mesh points
+Info<< "Reading field T\n" << endl;
+volScalarField T
+(
+    IOobject
+    (
+        "T",
+        runTime.timeName(),
+        mesh,
+        IOobject::MUST_READ,
+        IOobject::AUTO_WRITE
+    ),
+    mesh
+);
+
 
 
 Info<< "Reading field U\n" << endl;
